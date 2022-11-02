@@ -45,4 +45,23 @@ public class SinglyLinkedList<T>
         }
     }
 
+    public int Length()
+    {
+        if (Head is null)
+        {
+            return 0;
+        }
+
+        var curr = Head;
+        var length = 1;
+
+        while (curr.Next is not null)
+        {
+            curr = curr.Next;
+            length++;
+        }
+
+        return length;
+    }
+
 }

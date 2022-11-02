@@ -6,5 +6,6 @@ list.AddFirst(1);
 list.AddFirst(2);
 list.AddLast(5);
 list.Display();
+Console.WriteLine(list.Length());
 
 Console.WriteLine("Hello, World!");
