@@ -45,6 +45,34 @@ public class SinglyLinkedList<T>
         }
     }
 
+    public bool Delete(T element)
+    {
+        var curr = Head;
+        SinglyLinkedListNode<T>? prev = null;
+
+        while (curr is not null)
+        {
+            if (curr.Data is null && element is null || curr.Data is not null && curr.Data.Equals(element))
+            {
+                if (curr.Equals(Head))
+                {
+                    Head = Head.Next;
+                    return true;
+                }
+
+                if (prev is not null)
+                {
+                    prev.Next = curr.Next;
+                    return true;
+                }
+            }
+            prev = curr;
+            curr = curr.Next;
+        }
+
+        return false;
+    }
+
     public int Length()
     {
         if (Head is null)
@@ -62,6 +90,17 @@ public class SinglyLinkedList<T>
         }
 
         return length;
+    }
+
+    public IEnumerable<T> GetListData()
+    {
+        var curr = Head;
+
+        while (curr is not null)
+        {
+            yield return curr.Data;
+            curr = curr.Next;
+        }
     }
 
 }
